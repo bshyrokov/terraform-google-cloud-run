@@ -193,3 +193,15 @@ output dns {
 
   description = "DNS records to populate for mapped domains. Keys are the domains that are mapped."
 }
+
+output serverless_neg_id {
+  value = google_compute_region_network_endpoint_group.serverless_neg.id
+}
+
+output serverless_neg_name {
+  value = google_compute_region_network_endpoint_group.serverless_neg.name
+}
+
+output serverless_neg_self_link {
+  value = google_compute_region_network_endpoint_group.serverless_neg.self_link
+}

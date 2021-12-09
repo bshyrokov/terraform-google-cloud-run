@@ -175,3 +175,13 @@ resource google_cloud_run_domain_mapping domains {
     ignore_changes = [metadata[0]]
   }
 }
+
+resource "google_compute_region_network_endpoint_group" "serverless_neg" {
+  provider              = google-beta
+  name                  = "serverless-neg"
+  network_endpoint_type = "SERVERLESS"
+  region                = var.location
+  cloud_run {
+    service = google_cloud_run_service.default.name
+  }
+}
